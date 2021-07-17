@@ -301,8 +301,8 @@ h2 {
   position: absolute;
   width: 30px;
   height: 30px;
-  right: 5px;
-  top: 5px;
+  right: 10px;
+  top: 10px;
   border: #2c71b8 solid 1px;
   background: url(images/icon8.png) 50% 50%;
   background-repeat: no-repeat;
@@ -319,7 +319,7 @@ h2 {
   position: absolute;
   width: 30px;
   height: 30px;
-  right: 5px;
+  right: 10px;
   top: 45px;
   border: #2c71b8 solid 1px;
   background: url(images/icon5.png) 50% 50%;
