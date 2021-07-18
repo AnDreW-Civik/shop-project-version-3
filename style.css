@@ -45,10 +45,10 @@ body {
 }
 
 .col-md-8 {
-  width: 66.6%;
+  width: 66.66667%;
 }
 .col-md-4 {
-  width: 33.3%;
+  width: 33.33333%;
 }
 
 .header {
@@ -258,7 +258,7 @@ h2 {
 .product-image {
   height: 180px;
   position: relative;
-  background-color: #cdddee;
+  background-color: #cdddeee1;
 }
 
 .product-image > img {
@@ -409,6 +409,7 @@ h2 {
 .boldd {
   font-weight: bold;
   text-transform: uppercase;
+  color: white;
 }
 .padd {
   padding-top: 18px;
