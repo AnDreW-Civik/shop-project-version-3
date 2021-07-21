@@ -164,6 +164,7 @@ body {
   bottom: 4px;
   transform: rotate(180deg);
   display: block;
+  text-shadow: 1px 1px 4px white;
 }
 
 .form {
@@ -238,6 +239,7 @@ input::-webkit-search-results-decoration {
 
 .breadcrumbs a:hover {
   border-bottom: 1px solid #ffffff6c;
+  text-shadow: 1px 1px 4px white;
 }
 
 .links {
@@ -456,6 +458,7 @@ sup {
 }
 .load a:hover {
   border-bottom: 1px solid white;
+  text-shadow: 1px 1px 4px white;
 }
 
 .sort li {
@@ -558,6 +561,11 @@ input[type="checkbox"]:checked + label:before {
 
 .aside label {
   margin-left: 10px;
+  cursor: pointer;
+}
+
+.shadow:hover {
+  text-shadow: 1px 1px 4px white;
 }
 
 .aside label:before {
