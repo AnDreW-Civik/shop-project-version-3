@@ -546,6 +546,9 @@ input[type="checkbox"]:checked + label:before {
 .aside-filter {
   margin-bottom: 60px;
 }
+.colors {
+  margin-top: 60px;
+}
 
 .aside-item,
 .device-type,
@@ -569,7 +572,8 @@ input[type="checkbox"]:checked + label:before {
 }
 .more-options {
   text-align: center;
-  margin-top: 29px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .btn-more-options {
@@ -586,7 +590,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .btn-submit {
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 30px;
   width: 210px;
   height: 50px;
