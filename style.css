@@ -629,3 +629,10 @@ input[type="checkbox"]:checked + label:before {
   display: block;
   clear: both;
 }
+
+.liked {
+  background: url(images/icon7.png) no-repeat 50% 50%;
+  background-color: #fd071cc2;
+  border: black solid 1px;
+  border-radius: 8px;
+}
