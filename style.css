@@ -636,3 +636,9 @@ input[type="checkbox"]:checked + label:before {
   border: black solid 1px;
   border-radius: 8px;
 }
+.liked:hover {
+  background: url(images/icon7.png) no-repeat 50% 50%;
+  background-color: #fd071cc2;
+  border: black solid 1px;
+  border-radius: 8px;
+}
