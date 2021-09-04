@@ -114,37 +114,37 @@ window.addEventListener("scroll", showModalByScroll);
 
 // change product quantity
 
-let decrementBtn = document.querySelectorAll(".decrement-button");
-let incrementBnt = document.querySelectorAll(".increment-button");
-let quantityInput = document.querySelectorAll(".product-quantity input");
-let minCount = 1;
-let maxCount = 5;
+// let decrementBtn = document.querySelectorAll(".decrement-button");
+// let incrementBtn = document.querySelectorAll(".increment-button");
+// let quantityInput = document.querySelectorAll(".product-quantity input");
+// let minCount = 1;
+// let maxCount = 5;
 
-function toggleBtnState(count, decrementBtn, incrementBnt) {
-  decrementBtn.disabled = count <= minCount;
-  incrementBnt.disabled = count >= maxCount;
-}
+// function toggleBtnState(count, decrementBtn, incrementBnt) {
+//   decrementBtn.disabled = count <= minCount;
+//   incrementBtn.disabled = count >= maxCount;
+// }
 
-quantityInput.forEach((item, i) =>
-  toggleBtnState(item.value, decrementBtn[i], incrementBnt[i])
-);
-decrementBtn.forEach((item, i) =>
-  item.addEventListener("click", function () {
-    let currentValue = +quantityInput[i].value;
-    let nextValue = currentValue - 1;
-    quantityInput[i].value = nextValue;
-    toggleBtnState(nextValue, item, incrementBnt[i]);
-  })
-);
+// quantityInput.forEach((item, i) =>
+//   toggleBtnState(item.value, decrementBtn[i], incrementBnt[i])
+// );
+// decrementBtn.forEach((item, i) =>
+//   item.addEventListener("click", function () {
+//     let currentValue = +quantityInput[i].value;
+//     let nextValue = currentValue - 1;
+//     quantityInput[i].value = nextValue;
+//     toggleBtnState(nextValue, item, incrementBnt[i]);
+//   })
+// );
 
-incrementBnt.forEach((item, i) =>
-  item.addEventListener("click", function () {
-    let currentValue = +quantityInput[i].value;
-    let nextValue = currentValue + 1;
-    quantityInput[i].value = nextValue;
-    toggleBtnState(nextValue, decrementBtn[i], item);
-  })
-);
+// incrementBtn.forEach((item, i) =>
+//   item.addEventListener("click", function () {
+//     let currentValue = +quantityInput[i].value;
+//     let nextValue = currentValue + 1;
+//     quantityInput[i].value = nextValue;
+//     toggleBtnState(nextValue, decrementBtn[i], item);
+//   })
+// );
 
 // let currentValue = +quantityInput;
 // toggleBtnState(currentValue);
@@ -156,9 +156,9 @@ $(".slider-block").slick({
 });
 
 // // Counter function constructor
-// let decrementBtns = document.querySelectorAll(".decrement-button")[0];
-// let incrementBtns = document.querySelectorAll(".increment-button")[0];
-// let quantityInput = document.querySelectorAll(".product-quantity input")[0];
+let decrementBtns = document.querySelectorAll(".decrement-button");
+let incrementBtns = document.querySelectorAll(".increment-button");
+let quantityInput = document.querySelectorAll(".product-quantity input");
 
 // function Car(year, model, color) {
 //   this.year = year;
@@ -186,16 +186,79 @@ $(".slider-block").slick({
 // let calc = new Calculator(10, 5);
 // console.log(calc.sum());
 
-// function Counter(incrementBnt, decrementBtn, inputField) {
-// this.incrementBnt = incrementBnt;
-// this.decrementBtn = decrementBtn;
-// this.inputField = inputField;
-//   this.domRefs = {
-//     incrementBnt,
-//     decrementBtn,
-//     inputField,
-//   };
-// }
+function Counter(
+  incrementBtn,
+  decrementBtn,
+  inputField,
+  minCount = 1,
+  maxCount = 5
+) {
+  this.domRefs = {
+    incrementBtn,
+    decrementBtn,
+    inputField,
+  };
 
-// const counter = new Counter(incrementBnt, decrementBtn, inputField);
-// console.log(counter);
+  this.toggleBtnState = function () {
+    let count = this.domRefs.inputField.value;
+    this.domRefs.decrementBtn.disabled = count <= minCount;
+    this.domRefs.incrementBtn.disabled = count >= maxCount;
+    let currentValue = +this.domRefs.inputField.value;
+    let nextValue = currentValue + 1;
+    this.domRefs.inputField.value = nextValue;
+  };
+  this.toggleBtnState();
+
+  this.inputField = function () {
+    this.domRefs.inputField.forEach((item, i) =>
+      this.toggleBtnState(item[i].value, decrementBtn[i], incrementBnt[i])
+    );
+  };
+
+  // this.increment = function () {
+  //   let currentValue = +this.domRefs.inputField.value;
+  //   let nextValue = currentValue + 1;
+  //   this.domRefs.inputField.value = nextValue;
+  //   this.toggleBtnState();
+  // };
+
+  // this.decrement = function () {
+  //   let currentValue = +this.domRefs.inputField.value;
+  //   let nextValue = currentValue - 1;
+  //   this.domRefs.inputField.value = nextValue;
+  //   this.toggleBtnState();
+  // };
+
+  this.increment = function () {
+    this.domRefs.incrementBtn.forEach((item, i) =>
+      item.addEventListener(
+        "click",
+        function () {
+          let currentValue = +this.domRefs.inputField[i].value;
+          let nextValue = currentValue + 1;
+          this.domRefs.inputField.value = nextValue;
+          this.toggleBtnState();
+        },
+        this.decrement.bind(this)
+      )
+    );
+  };
+
+  this.decrement = function () {
+    this.domRefs.decrementBtn.forEach((item, i) =>
+      item.addEventListener(
+        "click",
+        function decr() {
+          let currentValue = +this.domRefs.inputField[i].value;
+          let nextValue = currentValue - 1;
+          this.domRefs.inputField.value = nextValue;
+          this.toggleBtnState();
+        },
+        this.decrementBtn.bind(this)
+      )
+    );
+  };
+}
+
+const counter = new Counter(incrementBtns, decrementBtns, quantityInput);
+console.log(counter);
